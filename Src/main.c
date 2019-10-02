@@ -110,12 +110,14 @@ int main(void)
     }*/
 
      
-    //lors de l'appui du bouton, la led clignote s'allume et s'étteint toutes les 200ms (clignotement)
+    //Clignotement LED2 quand je maintiens le bouton 
     if (HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin) == 0) {
+      //clignotement toutes les 200ms quand je maintiens le bouton
       HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
       HAL_Delay(200);
     }
     else {
+      //Je relache le bouton, la lumière s'étteint bien 
       HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin,0);
     }
   }
@@ -127,7 +129,7 @@ int main(void)
   * @retval None
   */
 void SystemClock_Config(void)
-{
+{ 
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
